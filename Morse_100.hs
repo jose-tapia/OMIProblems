@@ -1,13 +1,13 @@
 import Data.Char
 morse::[String]
 morse= [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
-getchar::Char->String
-getchar x = getchar' (toLower x)
- where getchar' x = morse!!((fromEnum x)-97)
+toMorse::Char->String
+toMorse x = toMorse' (toLower x)
+ where toMorse' x = morse!!((fromEnum x)-97)
  
 translate::String->String
 translate [] = []
-translate (x:xs) = (getchar x)++translate xs
+translate (x:xs) = (toMorse x)++translate xs
 
 main = do
  tap<-getLine
